@@ -27,7 +27,7 @@ public class API_Gateway {
     private final String FILE_TRANSFER_MICROSERVICE_HOST = EnvManager.getEnvVariable("FILE_TRANSFER_MICROSERVICE_HOST");
     private final int FILE_TRANSFER_MICROSERVICE_PORT = Integer.parseInt(EnvManager.getEnvVariable("FILE_TRANSFER_MICROSERVICE_PORT"));
 
-    public void runServer() throws IOException {
+    public void runServer() {
         try (ServerSocket server = new ServerSocket(SERVER_PORT)) {
             System.out.println("API Gateway is running on port " + SERVER_PORT);
 
@@ -41,11 +41,7 @@ public class API_Gateway {
     }
 
     public static void main(String[] args) {
-        try {
-            new API_Gateway().runServer();
-        } catch (IOException e) {
-            System.err.println("Failed to start API Gateway: " + e.getMessage());
-        }
+        new API_Gateway().runServer();
     }
 
     private class ClientHandler extends Thread {
@@ -114,7 +110,7 @@ public class API_Gateway {
                     return part.split(":")[1];
                 }
             }
-            return null;
+            return "";
         }
 
         private void forwardRequest(String request, String host, int port, PrintWriter clientOut) {
