@@ -1,6 +1,5 @@
 package pl.edu.uws.lw89233;
 
-import pl.edu.uws.lw89233.managers.EnvManager;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,22 +9,22 @@ import java.net.Socket;
 
 public class API_Gateway {
 
-    private final int SERVER_PORT = Integer.parseInt(EnvManager.getEnvVariable("SERVER_PORT"));
+    private final int SERVER_PORT = Integer.parseInt(System.getenv("SERVER_PORT"));
 
-    private final String REGISTRATION_MICROSERVICE_HOST = EnvManager.getEnvVariable("REGISTRATION_MICROSERVICE_HOST");
-    private final int REGISTRATION_MICROSERVICE_PORT = Integer.parseInt(EnvManager.getEnvVariable("REGISTRATION_MICROSERVICE_PORT"));
+    private final String REGISTRATION_MICROSERVICE_HOST = System.getenv("REGISTRATION_MICROSERVICE_HOST");
+    private final int REGISTRATION_MICROSERVICE_PORT = Integer.parseInt(System.getenv("REGISTRATION_MICROSERVICE_PORT"));
 
-    private final String LOGIN_MICROSERVICE_HOST = EnvManager.getEnvVariable("LOGIN_MICROSERVICE_HOST");
-    private final int LOGIN_MICROSERVICE_PORT = Integer.parseInt(EnvManager.getEnvVariable("LOGIN_MICROSERVICE_PORT"));
+    private final String LOGIN_MICROSERVICE_HOST = System.getenv("LOGIN_MICROSERVICE_HOST");
+    private final int LOGIN_MICROSERVICE_PORT = Integer.parseInt(System.getenv("LOGIN_MICROSERVICE_PORT"));
 
-    private final String POSTS_MICROSERVICE_HOST = EnvManager.getEnvVariable("POSTS_MICROSERVICE_HOST");
-    private final int POSTS_MICROSERVICE_PORT = Integer.parseInt(EnvManager.getEnvVariable("POSTS_MICROSERVICE_PORT"));
+    private final String POSTS_MICROSERVICE_HOST = System.getenv("POSTS_MICROSERVICE_HOST");
+    private final int POSTS_MICROSERVICE_PORT = Integer.parseInt(System.getenv("POSTS_MICROSERVICE_PORT"));
 
-    private final String LAST_10_POSTS_MICROSERVICE_HOST = EnvManager.getEnvVariable("LAST_10_POSTS_MICROSERVICE_HOST");
-    private final int LAST_10_POSTS_MICROSERVICE_PORT = Integer.parseInt(EnvManager.getEnvVariable("LAST_10_POSTS_MICROSERVICE_PORT"));
+    private final String LAST_10_POSTS_MICROSERVICE_HOST = System.getenv("LAST_10_POSTS_MICROSERVICE_HOST");
+    private final int LAST_10_POSTS_MICROSERVICE_PORT = Integer.parseInt(System.getenv("LAST_10_POSTS_MICROSERVICE_PORT"));
 
-    private final String FILE_TRANSFER_MICROSERVICE_HOST = EnvManager.getEnvVariable("FILE_TRANSFER_MICROSERVICE_HOST");
-    private final int FILE_TRANSFER_MICROSERVICE_PORT = Integer.parseInt(EnvManager.getEnvVariable("FILE_TRANSFER_MICROSERVICE_PORT"));
+    private final String FILE_TRANSFER_MICROSERVICE_HOST = System.getenv("FILE_TRANSFER_MICROSERVICE_HOST");
+    private final int FILE_TRANSFER_MICROSERVICE_PORT = Integer.parseInt(System.getenv("FILE_TRANSFER_MICROSERVICE_PORT"));
 
     public void runServer() {
         try (ServerSocket server = new ServerSocket(SERVER_PORT)) {
