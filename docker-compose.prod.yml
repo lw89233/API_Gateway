@@ -1,7 +1,6 @@
 services:
   api-gateway:
-    build: .
-    image: api-gateway:latest
+    image: lw89233/api-gateway:latest
     container_name: api-gateway-service
     restart: unless-stopped
     env_file:
